@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="bg" style="display: flex; flex-direction: row; flex-wrap: wrap; border: solid black;"></div>
+    <script>
+        async function fetchData(){
+            try{ 
+            var countryData = await fetch("https://restcountries.com/v3.1/all")
+            var countries = await countryData.json()
+            // console.log(countryData);
+            countries.forEach(element => {
+                var card =document.createElement("div");
+                 card.style.width="32%";
+                
+                 card.style.border="solid black"
+                 card.style.backgroundColor="gray";
+                 var box=document.createElement("div")
+                var box2=document.createElement("div")
+                box.style.marginLeft="50px";
+                box2.style.marginLeft="50px";          
+                // box.style.backgroundColor="gray";
+                // box2.style.backgroundColor="gray";
+                var flag=document.createElement("img");
+                flag.setAttribute("src",element.flags.png)
+                flag.setAttribute("width",200)
+                
+                
+                box.innerText="Name  :"+(element.name.common);
+                box2.innerText="code  :"+element.cca2;
+                
+                // box.style.height="30px";
+                card.appendChild(flag)
+                card.appendChild(box)
+                card.appendChild(box2)
+
+                document.getElementById("bg").appendChild(card)
+                
+            });
+        }
+        catch(error){
+            console.log(error)
+        }
+  }
+  fetchData() 
+    </script>
+</body>
+</html>
