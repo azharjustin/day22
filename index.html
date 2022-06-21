@@ -4,29 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CountriesFlag</title>
 </head>
 <body>
-    <div id="bg" style="display: flex; flex-direction: row; flex-wrap: wrap; border: solid black;"></div>
+    <div id="bg" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;    justify-content: space-evenly;
+    align-content: space-around; "></div>
     <script>
         async function fetchData(){
             try{ 
             var countryData = await fetch("https://restcountries.com/v3.1/all")
             var countries = await countryData.json()
-            // console.log(countryData);
+            console.log(countries);
             countries.forEach(element => {
                 var card =document.createElement("div");
                  card.style.width="32%";
+                 card.style.height="170px";
                 
                  card.style.border="solid black"
-                 card.style.backgroundColor="gray";
+                 card.style.marginTop="5px";
+                 card.style.borderRadius="12px"
+                 card.style.backgroundColor="linen";
                  var box=document.createElement("div")
                 var box2=document.createElement("div")
-                box.style.marginLeft="50px";
-                box2.style.marginLeft="50px";          
+                box.style.textAlign="center";
+                box2.style.textAlign="center";          
                 // box.style.backgroundColor="gray";
                 // box2.style.backgroundColor="gray";
+                var flagBox=document.createElement("div")
                 var flag=document.createElement("img");
+                flag.style.height="120px";
+                // flag.style.width="100%";
+                flag.style.borderRadius="5px";
+                flag.style.objectFit="cover";
+                flagBox.style.marginTop="5px";
+                flagBox.style.display="flex";
+                flagBox.style.justifyContent="center";
+                // flag.style.marginLeft="50px";
                 flag.setAttribute("src",element.flags.png)
                 flag.setAttribute("width",200)
                 
@@ -35,7 +48,8 @@
                 box2.innerText="code  :"+element.cca2;
                 
                 // box.style.height="30px";
-                card.appendChild(flag)
+                flagBox.appendChild(flag)
+                card.appendChild(flagBox)
                 card.appendChild(box)
                 card.appendChild(box2)
 
