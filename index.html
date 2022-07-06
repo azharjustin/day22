@@ -9,29 +9,29 @@
     <title>CountriesFlag</title>
 </head>
 <body>
-    <div class="search-wrapper">
+    <!-- <div class="search-wrapper">
         <label for="search">Search Countries</label>
         <input type="search" id="search">
-      </div>
+      </div> -->
     <div id="bg" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;    justify-content: space-evenly;
     align-content: space-around; "></div>
     <script>
-const searchInput = document.getElementById("search");
-var countries=[];
+// const searchInput = document.getElementById("search");
+// var countries=[];
 
-searchInput.addEventListener('keyup', e => {
-  const value = e.target.value.toLowerCase();
-  console.log(value);
-  const filteredCountries=countries.filter((user) => {
-     return(
-        user.name.common.toLowerCase().includes(value)||
-        user.cca2.toLowerCase().includes(value)
-     );
+// searchInput.addEventListener('keyup', e => {
+//   const value = e.target.value.toLowerCase();
+//   console.log(value);
+//   const filteredCountries=countries.filter((user) => {
+//      return(
+//         user.name.common.toLowerCase().includes(value)||
+//         user.cca2.toLowerCase().includes(value)
+//      );
      
      
-  });
- displaylist(filteredCountries);
-})
+//   });
+//  displaylist(filteredCountries);
+// })
 
 
         async function fetchData(){
